@@ -33,7 +33,7 @@ class CreatePatientWorkload extends WorkloadModuleBase {
      */
     async submitTransaction() {
         this.txIndex++;
-        let Email = 'anhori' + txIndex.toString() + '@gmail.com';
+        let Email = 'anhori' + this.txIndex.toString() + '@gmail.com';
         let Name = names[Math.floor(Math.random() * names.length)];
         let PhoneNumber = '0967' +  numbers[Math.floor(Math.random() * numbers.length)] + numbers[Math.floor(Math.random() * numbers.length)] + numbers[Math.floor(Math.random() * numbers.length)] + numbers[Math.floor(Math.random() * numbers.length)] + numbers[Math.floor(Math.random() * numbers.length)] +  numbers[Math.floor(Math.random() * numbers.length)] ;
         let Gender = genders[Math.floor(Math.random() * genders.length)];
