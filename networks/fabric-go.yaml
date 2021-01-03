@@ -35,9 +35,9 @@ clients:
                 cryptoStore:
                     path: /tmp/hfc-cvs/thuduchospital
             clientPrivateKey:
-                path: caliper-benchmarks/cert/key.pem
+                path: caliper_benchmarks/cert/key.pem
             clientSignedCert:
-                path: caliper-benchmarks/cert/Admin@ThuDucHospital-cert.pem
+                path: caliper_benchmarks/cert/Admin@ThuDucHospital-cert.pem
 
 channels:
     hospitalchannel:
@@ -52,7 +52,7 @@ channels:
         - id: fabcar
           version: v1
           language: golang
-          path: caliper-benchmarks/src/fabric/samples/patient/go/patient.go
+          path: caliper_benchmarks/src/fabric/samples/patient/go/patient.go
 
 organizations:
     ThuDucHospital:
@@ -62,9 +62,9 @@ organizations:
         certificateAuthorities:
         - ca1.ThuDucHospital
         adminPrivateKey:
-            path: caliper-benchmarks/cert/key.pem
+            path: caliper_benchmarks/cert/key.pem
         signedCert:
-            path: caliper-benchmarks/cert/Admin@ThuDucHospital-cert.pem
+            path: caliper_benchmarks/cert/Admin@ThuDucHospital-cert.pem
 
 orderers:
     orderer1-ordererorg:
@@ -72,7 +72,7 @@ orderers:
         grpcOptions:
             ssl-target-name-override: orderer1-ordererorg
         tlsCACerts:
-            path: caliper-benchmarks/cert/tlscacert.pem
+            path: caliper_benchmarks/cert/tlscacert.pem
 peers:
     peer1-thuduchospital:
         url: grpcs://10.102.10.229:30741
@@ -80,7 +80,7 @@ peers:
             ssl-target-name-override: peer1-thuduchospital
             grpc.keepalive_time_ms: 600000
         tlsCACerts:
-            path: caliper-benchmarks/cert/tlscacert.pem
+            path: caliper_benchmarks/cert/tlscacert.pem
 
 certificateAuthorities:
     ca1.ThuDucHospital:
@@ -88,7 +88,7 @@ certificateAuthorities:
         httpOptions:
             verify: false
         tlsCACerts:
-            path: caliper-benchmarks/cert/cacert-1.pem
+            path: caliper_benchmarks/cert/cacert-1.pem
         registrar:
         - enrollId: ca1.ThuDucHospital.admin
           enrollSecret: ca1ThuDucPW
