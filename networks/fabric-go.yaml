@@ -1,0 +1,94 @@
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+
+name: Fabric
+version: "1.0"
+mutual-tls: true
+
+caliper:
+    blockchain: fabric
+
+info:
+    Version: 2.1.0
+    Size: 2 Orgs with 1 Peer
+    Orderer: Solo
+    Distribution: Single Host
+    StateDB: goleveldb
+
+clients:
+    Admin@ThuDucHospital:
+        client:
+            organization: ThuDucHospital
+            credentialStore:
+                path: /tmp/hfc-kvs/thuduchospital
+                cryptoStore:
+                    path: /tmp/hfc-cvs/thuduchospital
+            clientPrivateKey:
+                path: caliper-benchmarks/cert/key.pem
+            clientSignedCert:
+                path: caliper-benchmarks/cert/Admin@ThuDucHospital-cert.pem
+
+channels:
+    hospitalchannel:
+        created: true
+        orderers:
+        - orderer1-ordererorg
+        peers:
+           peer1-thuduchospital:
+             eventSource: true
+
+        contracts:
+        - id: fabcar
+          version: v1
+          language: golang
+          path: caliper-benchmarks/src/fabric/samples/patient/go/patient.go
+
+organizations:
+    ThuDucHospital:
+        mspid: ThuDucHospitalMSP
+        peers:
+        - peer1-thuduchospital
+        certificateAuthorities:
+        - ca1.ThuDucHospital
+        adminPrivateKey:
+            path: caliper-benchmarks/cert/key.pem
+        signedCert:
+            path: caliper-benchmarks/cert/Admin@ThuDucHospital-cert.pem
+
+orderers:
+    orderer1-ordererorg:
+        url: grpcs://10.102.10.229:30740
+        grpcOptions:
+            ssl-target-name-override: orderer1-ordererorg
+        tlsCACerts:
+            path: caliper-benchmarks/cert/tlscacert.pem
+peers:
+    peer1-thuduchospital:
+        url: grpcs://10.102.10.229:30741
+        grpcOptions:
+            ssl-target-name-override: peer1-thuduchospital
+            grpc.keepalive_time_ms: 600000
+        tlsCACerts:
+            path: caliper-benchmarks/cert/tlscacert.pem
+
+certificateAuthorities:
+    ca1.ThuDucHospital:
+        url: https://10.102.10.229:30744
+        httpOptions:
+            verify: false
+        tlsCACerts:
+            path: caliper-benchmarks/cert/cacert-1.pem
+        registrar:
+        - enrollId: ca1.ThuDucHospital.admin
+          enrollSecret: ca1ThuDucPW
