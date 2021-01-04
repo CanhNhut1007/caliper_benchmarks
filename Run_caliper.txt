@@ -1,0 +1,1 @@
+npx caliper launch manager --caliper-bind-sut fabric:2.1.0 --caliper-workspace ~/calipers --caliper-benchconfig ~/calipers/caliper_benchmarks/benchmarks/samples/fabric/patient/config.yaml --caliper-networkconfig ~/calipers/caliper_benchmarks/networks/fabric-go.yaml --caliper-fabric-gateway-enabled
