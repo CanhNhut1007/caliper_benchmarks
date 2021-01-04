@@ -45,8 +45,8 @@ class QueryAllPatientsWorkload extends WorkloadModuleBase {
 
         await helper.createPatient(this.sutAdapter, this.workerIndex, this.roundArguments);
 
-        this.startingKey = 'anhori' + this.roundArguments.startKey + '@gmail.com';
-        this.endingKey = 'anhori' + this.roundArguments.endKey+ '@gmail.com';
+        this.startingKey = 'canhnhutori' + this.roundArguments.startKey ;
+        this.endingKey = 'canhnhutori' + this.roundArguments.endKey;
     }
 
     /**

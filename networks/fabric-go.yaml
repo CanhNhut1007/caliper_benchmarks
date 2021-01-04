@@ -49,7 +49,7 @@ channels:
              eventSource: true
 
         contracts:
-        - id: fabcar
+        - id: patient
           version: v1
           language: golang
           path: caliper_benchmarks/src/fabric/samples/patient/go/patient.go

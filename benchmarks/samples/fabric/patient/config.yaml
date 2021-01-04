@@ -3,6 +3,14 @@ test:
     type: local
     number: 5
   rounds:
+    - label: Create a patient.
+      txDuration: 30
+      rateControl:
+          type: fixed-load
+          opts:
+            tps: 1
+      workload:
+        module: caliper_benchmarks/benchmarks/samples/fabric/patient/createPatient.js
     - label: Query all patient.
       txDuration: 30
       rateControl:
@@ -14,7 +22,7 @@ test:
         arguments:
           assets: 10
           startKey: '1'
-          endKey: '50'
+          endKey: '10'
     - label: Query a patient.
       txDuration: 30
       rateControl:
@@ -25,11 +33,3 @@ test:
         module: caliper_benchmarks/benchmarks/samples/fabric/patient/queryPatient.js
         arguments:
           assets: 10
-    - label: Create a patient.
-      txDuration: 30
-      rateControl:
-          type: fixed-load
-          opts:
-            transactionLoad: 5
-      workload:
-        module: caliper_benchmarks/benchmarks/samples/fabric/patient/createPatient.js

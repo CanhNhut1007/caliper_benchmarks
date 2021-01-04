@@ -54,7 +54,7 @@ class QueryPatientWorkload extends WorkloadModuleBase {
      */
     async submitTransaction() {
         this.txIndex++;
-        let email = 'anhori' + this.txIndex.toString() + '@gmail.com';
+        let email = 'canhnhutori' + this.txIndex.toString() ;
 
         let args = {
             contractId: 'patient',

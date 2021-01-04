@@ -33,14 +33,14 @@ class CreatePatientWorkload extends WorkloadModuleBase {
      */
     async submitTransaction() {
         this.txIndex++;
-        let Email = 'anhori' + this.txIndex.toString() + '@gmail.com';
+        let Email = 'canhnhutori' + this.txIndex.toString();
         let Name = names[Math.floor(Math.random() * names.length)];
         let PhoneNumber = '0967' +  numbers[Math.floor(Math.random() * numbers.length)] + numbers[Math.floor(Math.random() * numbers.length)] + numbers[Math.floor(Math.random() * numbers.length)] + numbers[Math.floor(Math.random() * numbers.length)] + numbers[Math.floor(Math.random() * numbers.length)] +  numbers[Math.floor(Math.random() * numbers.length)] ;
         let Gender = genders[Math.floor(Math.random() * genders.length)];
         let Address = addresses[Math.floor(Math.random() * addresses.length)];
         let Dateofbirth = dates[Math.floor(Math.random() * dates.length)] +'-'+ months[Math.floor(Math.random() * months.length)] +'-'+ years[Math.floor(Math.random() * years.length)];
-        let Photo ='';
-        let Contact= relationships[Math.floor(Math.random() * relationships.length)] + '-' +contactnames[Math.floor(Math.random() * contactnames.length)] + '-' + phonenumber;
+        let Photo ='photo';
+        let Contact= relationships[Math.floor(Math.random() * relationships.length)] + '-' +contactnames[Math.floor(Math.random() * contactnames.length)] + '-' + '0987654321';
 
         let args = {
             contractId: 'patient',

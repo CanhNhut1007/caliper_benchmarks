@@ -31,14 +31,14 @@ module.exports.createPatient = async function (bc, workerIndex, args) {
 
     while (txIndex < args.assets) {
         txIndex++;
-        let email = 'anhori' + txIndex.toString() + '@gmail.com';
+        let email = 'canhnhutori' + txIndex.toString();
         let name = names[Math.floor(Math.random() * names.length)];
         let phonenumber = '0967' +  numbers[Math.floor(Math.random() * numbers.length)] + numbers[Math.floor(Math.random() * numbers.length)] + numbers[Math.floor(Math.random() * numbers.length)] + numbers[Math.floor(Math.random() * numbers.length)] + numbers[Math.floor(Math.random() * numbers.length)] +  numbers[Math.floor(Math.random() * numbers.length)] ;
         let gender = genders[Math.floor(Math.random() * genders.length)];
         let address = addresses[Math.floor(Math.random() * addresses.length)];
         let dateofbirth = dates[Math.floor(Math.random() * dates.length)] +'-'+ months[Math.floor(Math.random() * months.length)] +'-'+ years[Math.floor(Math.random() * years.length)];
-        let photo ='';
-        let contact= relationships[Math.floor(Math.random() * relationships.length)] + '-' +contactnames[Math.floor(Math.random() * contactnames.length)] + '-' + phonenumber;
+        let photo ='photo';
+        let contact= relationships[Math.floor(Math.random() * relationships.length)] + '-' +contactnames[Math.floor(Math.random() * contactnames.length)] + '-' + '0987654321';
 
         let myArgs = {
             contractId: 'patient',
